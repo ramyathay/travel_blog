@@ -1,49 +1,80 @@
-var TravellerPage = React.createClass({
-	render: function(){
-		return (
-			<div>
-				<h1> A Traveller's Delight </h1>
-				<h4> Learn more about your favourite destination spot and share your experience </h4>
-				<SelectPlace />
-			</div>
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ 
+class Traveller_Page extends React.Component {
+  render() {
+    return (
+		<div>
+			<h1> A Traveller's Delight </h1>
+			<h4> Learn more about your favourite destination spot and share your experience </h4>
+			<SelectPlace />
+		</div>
 
 		)
+  	}
+}
+class SelectPlace extends React.Component{
+	constructor() {
+		super()
+		this.state = {showData: false,place: '',placeDetails: [],caller: 'Me',inputValue: ''}
+	};
+	handleChange(e) {
+		this.setState({showData: true,place: e.target.value})
+		$.ajax({
+			url: 'http://localhost:5000/places/' + e.target.value,
+			dataType: 'json',
+			type: 'GET',
+			success: function(data) {
+				this.setState({placeDetails: data})
+				console.log("results are",data)
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.error(status, err.toString());
+			}.bind(this)
+		})
+	};
+	handleClick() {
+		this.setState({caller: this.state.inputValue})
 	}
-})
-
-var SelectPlace = React.createClass({
-	getInitialState: function() {
-		return {showData: false}
-	},
-	handleChange: function () {
-		this.setState({showData: true})
-	},
-	render: function() {
+	handleInputData(e) {
+		this.setState({inputValue: e.target.value})
+	}
+	render() {
+		debugger
 		return (
 			<div>
 				<label for = 'places'>Select your favourite Place </label>
-				<select id = 'places' onChange = {this.handleChange} value = {this.state.showData}>
+				<select id = 'places' onChange = {this.handleChange.bind(this)} value = {this.state.place}>
 					<option> Select </option>
 					<option value = "Paris"> Paris </option>
 					<option value = "London"> London </option>
 				</select>
-				{ this.state.showData ? <DisplayPlace /> : null}
-				{ this.state.showData ? <CommentBox /> : null}
+				{  <DisplayPlace  person={this.state.caller} handleClick = {this.handleClick.bind(this)} handleInputData = 
+				{this.handleInputData.bind(this)}/>}
+				{  <CommentBox /> }
 			</div>
 		)
 	}
-})
+}
 
-var DisplayPlace = React.createClass({
-	render: function() {
+class DisplayPlace extends React.Component{
+	render() {
 		return (
-			<h3> Favourite Destination Spot</h3>
+			<div>
+				<h4> Favourite Destination Spot</h4> 
+				<h4> {this.props.person}</h4>
+				<form>
+					<input type = "text"  onChange = {this.props.handleInputData} />
+					<button  type = "submit" onClick = {this.props.handleClick}> Update caller </button>
+				</form>
+			</div>
 		)
 	}
-})
+}
 
-var CommentBox = React.createClass({
-	render: function() {
+class CommentBox extends React.Component{
+	render() {
 		return (
 			<div>
 				<h3> Share your experience </h3>
@@ -55,7 +86,7 @@ var CommentBox = React.createClass({
 			</div>
 		)
 	}
-})
+}
 
 
-ReactDOM.render(<TravellerPage />,document.getElementById('container'))
+ReactDOM.render(<Traveller_Page />,document.getElementById('container'))
