@@ -1,1 +1,1 @@
-import Traveller_page from './app.js';
+import Traveller_page from './App/index.jsx';
