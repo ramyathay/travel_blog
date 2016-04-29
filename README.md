@@ -1,5 +1,5 @@
 # travel_blog
-A React project with Express MVC and Mysql Database.
+A React project with Express MVC and MySql Database.
 
 To use the repo follow the steps below:
 
