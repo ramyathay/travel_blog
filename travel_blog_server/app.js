@@ -75,3 +75,25 @@ app.listen(5000,function(){
 	console.log("Listening on port 5000")
 });
 
+function exitHandler(options, err) {
+    if (options.cleanup) {
+      console.log('clean');
+      connection.end()
+    }
+    if (err) console.log(err.stack);
+    if (options.exit){
+      process.exit();
+      connection.end()
+    } 
+}
+
+//do something when app is closing
+process.on('exit', exitHandler.bind(null,{cleanup:true}));
+
+//catches ctrl+c event
+process.on('SIGINT', exitHandler.bind(null, {exit:true}));
+
+//catches uncaught exceptions
+process.on('uncaughtException', exitHandler.bind(null, {exit:true}));
+
+
