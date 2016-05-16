@@ -7,6 +7,7 @@ import SelectPlace from '../SelectPlace/SelectPlace.jsx'
 import DisplayPlace from '../DisplayPlace/DisplayPlace.jsx'
 import TouristPlaces from '../TouristPlaces/TouristPlaces.jsx'
 import TouristSpot from '../TouristSpot/TouristSpot.jsx'
+import TouristPlacesWrapper from '../TouristPlaces/TouristPlacesWrapper.jsx'
 
 
 ReactDOM.render(<Router history={browserHistory}>
@@ -14,8 +15,9 @@ ReactDOM.render(<Router history={browserHistory}>
     </Route>
     <Route path = '/places/:placeId' component = {TouristSpot} >
     </Route>
-    <Route path = '/places/:placeName' component = {TouristPlaces} >
+    <Route path = '/places/:place' handler = {TouristPlacesWrapper} >
     </Route>
+    
   </Router>,document.getElementById('container'))
 
 

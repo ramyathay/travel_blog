@@ -5,3 +5,51 @@ h1 {
 	padding-left: 400px;
 	border-bottom: 2px solid black;
 }
+#images_scroll {
+	width: 100%;
+	background-color:lightblue; 
+	height:140px; 
+	overflow:hidden;
+	position:relative;
+	border: 2px solid black;
+}
+#inner_scroll{
+	 width: 300%;
+	 height: 100%;
+	 margin: 0;
+	 line-height: 80px;
+	 text-align: center;
+	 position:absolute;
+	 top:0;
+	 left:0;
+}
+
+#place {
+	float:left;
+	height:140px;
+    -webkit-animation: inner_scroll 45s  linear infinite;
+    -moz-animation:    inner_scroll 25s  linear infinite;
+}
+
+@-moz-keyframes inner_scroll {
+	0%   { -moz-transform: translateX(100%); }
+  	100% { -moz-transform: translateX(-100%); }
+ }
+
+ @-webkit-keyframes inner_scroll {
+  0%   { -webkit-transform: translateX(100%); }
+  100% { -webkit-transform: translateX(-100%); }
+ }
+
+ @keyframes inner_scroll {
+  0%   { 
+ 	 -moz-transform: translateX(100%); 
+ 	 -webkit-transform: translateX(100%); 
+ 	 transform: translateX(100%); 		
+  }
+  100% { 
+ 	 -moz-transform: translateX(-100%); 
+ 	 -webkit-transform: translateX(-100%); 
+ 	 transform: translateX(-100%); 
+  	}
+ }

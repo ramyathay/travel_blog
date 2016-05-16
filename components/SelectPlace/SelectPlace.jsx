@@ -14,6 +14,10 @@ export default class SelectPlace extends React.Component{
 						<option> Select </option>
 						<option value = "Paris"> Paris </option>
 						<option value = "London"> London </option>
+						<option value = "Berlin"> Berlin </option>
+						<option value = "Rome"> Rome </option>
+						<option value = "Dubai"> Dubai </option>
+						<option value = "Amsterdam"> Amsterdam </option>
 					</select>
 				</div>
 				<button onClick = {this.props.showTripPlan}> Plan Your Trip</button>

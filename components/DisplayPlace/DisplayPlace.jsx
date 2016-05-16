@@ -7,7 +7,7 @@ export default class DisplayPlace extends React.Component{
 		return (
 			<div className = "place_details"> 
 				<h2 id = "place_name">{this.props.placeDetails.result[0].place_name} </h2>
-				<img src = {this.props.placeDetails.result[0].image_location} alt = {this.props.placeDetails.result[0].place_name}/>
+				<img src = {this.props.placeDetails.result[0].image_location} alt = {this.props.placeDetails.result[0].place_name} id = "place_image"/>
 				<p id = "description"><i> {this.props.placeDetails.result[0].place_description} </i></p>	
 				<TouristPlaces place = {this.props.place_name}  addPlaceToItenary = {this.props.addPlaceToItenary}/> 
 			</div>

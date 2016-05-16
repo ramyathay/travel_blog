@@ -11,5 +11,10 @@
     "react-localstorage": "^0.3.0",
     "react-mixin": "^2.0.2",
     "react-router": "^2.4.0"
+  },
+  "devDependencies": {
+    "node-sass": "^3.7.0",
+    "sass-loader": "^3.2.0",
+    "webpack": "^1.13.0"
   }
 }

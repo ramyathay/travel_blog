@@ -45,6 +45,17 @@ export default class Traveller_Page extends React.Component {
 		<div className = "header">
 			<h1> A Traveller's Delight </h1>
 			<h4 id = "sub-heading"> Learn more about your favourite destination spot and share your experience </h4>
+			<div id = "images_scroll">
+				<div id ="inner_scroll">
+					<img src="../img/London.jpeg" id = "place" alt="London" />
+					<img  src="../img/paris.jpg"  id = "place" alt="Paris"  />
+					<img  src="../img/Los_Angeles.jpg" id = "place" alt="Los_Angeles" />
+					<img  src="../img/Amsterdam.JPG" id = "place" alt="Amsterdam" />
+					<img  src="../img/Berlin.jpeg" id = "place" alt="Berlin" />
+					<img  src="../img/Dubai.jpg" id = "place" alt="Dubai" />
+					<img  src="../img/Rome.jpg" id = "place" alt="Rome" />
+				</div>
+			</div>
 			<div>
 				{this.state.showTripItenary ? <ShowTripPlan places = {this.state.trip_plan} closeItenary = {this.closeItenary.bind(this)}/> : null}
 				<SelectPlace selectPlace = {this.getPlaceDetails.bind(this)}  placeDetails = {this.state.placeDetails} showPlace = {this.state.showPlace}  showTripPlan = {this.showTripPlan.bind(this)} addPlaceToItenary = {this.addPlaceToItenary.bind(this)}/>	
@@ -55,5 +66,28 @@ export default class Traveller_Page extends React.Component {
 		)
   	}
 }
+
+// @-moz-keyframes images_scroll {
+//  0%   { -moz-transform: translateX(100%); }
+//  100% { -moz-transform: translateX(-100%); }
+// }
+
+// @-webkit-keyframes images_scroll {
+//  0%   { -webkit-transform: translateX(100%); }
+//  100% { -webkit-transform: translateX(-100%); }
+// }
+
+// @keyframes images_scroll {
+//  0%   { 
+// 	 -moz-transform: translateX(100%); /* Browser bug fix */
+// 	 -webkit-transform: translateX(100%); /* Browser bug fix */
+// 	 transform: translateX(100%); 		
+//  }
+//  100% { 
+// 	 -moz-transform: translateX(-100%); /* Browser bug fix */
+// 	 -webkit-transform: translateX(-100%); /* Browser bug fix */
+// 	 transform: translateX(-100%); 
+//  	}
+// }
 
 //reactMixin(Traveller_Page.prototype, LocalStorageMixin);

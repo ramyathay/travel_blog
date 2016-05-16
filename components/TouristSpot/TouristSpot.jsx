@@ -23,7 +23,7 @@ export default class TouristSpot extends React.Component{
 	render() { 
 		return (
 			<div>
-				<li><a href = "/home"> Select more places</a></li>
+				<li><a href = "/"> Back</a></li>
 				<p> {this.state.place.name} </p>
 				<p>Located at : {this.state.place.address} </p>
 				<p>Contact no. : {this.state.place.international_phone_number} </p>
@@ -33,3 +33,6 @@ export default class TouristSpot extends React.Component{
 		)
 	}
 }
+
+
+// <li><a href = {"/places/" + this.props.params.place }> Back</a></li>

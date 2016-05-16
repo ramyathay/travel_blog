@@ -51,7 +51,7 @@ export default class TouristPlaces extends React.Component{
 				<h5><strong> Tourist Attractions </strong></h5>
 				{this.state.tourist_places.map(function(place,i) {
 					return  <div key = {i} id = "tourist_spot">
-								<li key = {i}><Link to = {'/places/' + place.id} > <i>{place.name}</i></Link></li>
+								<li key = {i}><Link to = {'/places/'+ place.id} > <i>{place.name}</i></Link></li>
 								<button onClick = {this.addPlace.bind(this,place)}> Add Place </button>
 								{this.state.bookmarked[place.id] ? <p>&#10038;</p> : null}
 							</div>

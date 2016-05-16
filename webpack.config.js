@@ -10,9 +10,8 @@ module.exports = {
         test: /\.scss$/,
         loaders: [
             'style',
-            'css'
-            // 'autoprefixer?browsers=last 3 versions',
-            // 'sass?outputStyle=expanded'
+            'css',
+            'sass'
           ]
       },
       {
